@@ -91,7 +91,7 @@ const Product = () => {
     <>
       <div className="text-center py-10">
         <h2 className="text-2xl font-semibold text-[#76212A] mb-6">
-          Handpicked for the Bride
+        Embrace Bridal Collection
         </h2>
         <div className="text-center py-10">
           <div className="flex justify-center gap-6">
