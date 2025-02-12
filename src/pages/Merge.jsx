@@ -16,6 +16,7 @@ function Merge() {
 
       {/* Scrollable content with padding to avoid overlap */}
 
+      <div className="relative top-30">
       <Products className="pt-[100px]" />
       <Product className="pt-[100px]" />
 
@@ -23,6 +24,7 @@ function Merge() {
       <Catalog className="pt-[100px]" />
 
       <Foot className="pt-[100px]"/>
+      </div>
     </div>
   );
 }

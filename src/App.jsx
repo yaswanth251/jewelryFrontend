@@ -10,6 +10,7 @@ import UserHome from "./pages/UserHome";
 import Merge from "./pages/Merge";
 import Detailed from "./pages/Detail"
 import Catalog from "./pages/Catalog";
+import Home from "./pages/Home";
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
         <Route path="/Merge" element={<Merge />} />
         <Route path="/Detailed" element={<Detailed />} />
         <Route path="/Catalog" element={<Catalog />} />
+        <Route path="/Home" element={<Home />} />
+
 
 
 

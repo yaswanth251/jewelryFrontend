@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import backgroundImage from "../Images/main-back.jpg";
@@ -9,7 +9,7 @@ function AdminLogin() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent page refresh
 
@@ -65,7 +65,10 @@ function AdminLogin() {
         <div className="text-white text-5xl z-20">YasOrna</div>
         <div className="bg-[#FF6CA4] z-20 flex flex-col w-[400px] h-max rounded-lg shadow-lg p-5">
           <h1 className="font-bold text-3xl">Admin Login</h1>
-          <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5 items-center">
+          <form
+            onSubmit={handleSubmit}
+            className="mt-8 flex flex-col gap-5 items-center"
+          >
             <div className="flex gap-4">
               <div className="flex flex-col text-center items-start gap-3.5">
                 <span>E-mail</span>

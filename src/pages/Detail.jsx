@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import moment from "moment";
 import { useNavigate, useLocation } from "react-router-dom";
+import UserHome from "./UserHome"
 
 // Import all image arrays (replace with your actual imports)
 import Bangle17 from "../Images/products/Bangles/image317.png";
@@ -98,6 +99,7 @@ const Detailed = () => {
 
   useEffect(() => {
     if (initialProduct) {
+      // ... (useEffect logic remains the same)
       let relatedImages;
       let numRelatedProducts = 10;
 
@@ -142,17 +144,20 @@ const Detailed = () => {
   const getDeliveryDates = () => {
     const dates = [];
     for (let i = 7; i <= 7; i++) {
-      dates.push(moment().add(i, "days").format("MMMM DD, YYYY"));
+      dates.push(moment().add(i, "days").format("MMMM DD, YYYY")); // Corrected date format
     }
     return dates;
   };
 
   const handleAddToCart = () => {
     console.log("Added to cart:", mainProduct);
+    // Here you would typically add logic to update a cart state,
+    // perhaps using context, Redux, or a similar state management solution.
   };
 
   const handleAddToWishlist = () => {
     console.log("Added to wishlist:", mainProduct);
+    // Similar to handleAddToCart, you would update a wishlist state here.
   };
 
   const handleRelatedProductClick = (relatedProduct) => {
@@ -164,34 +169,30 @@ const Detailed = () => {
   };
 
   return (
-    <div className="h-screen relative top-5 bg-white p-6 flex">
+    <div>
+    <div className="fixed top-0 left-0 w-full z-50">
+            <UserHome />
+          </div>
+    <div className="h-max relative top-34 bg-white p-6 flex ">
       <div
-      onClick={() => {
-        navigate("./Merge"); // Ensure the correct route path
-      }}
-      className="cursor-pointer text-2xl"
-    >
-      &times;
-    </div>
+        onClick={() => {
+          navigate(-1);
+        }}
+        className="cursor-pointer p-1 rounded-[50%] shadow shadow-amber-500 text-4xl h-10 w-10 flex justify-center hover:bg-amber-500 hover:transform-fill absolute top-5 right-10"
+      >
+        &times;
+      </div>
 
       <div className="w-1/2 pr-6 flex flex-col items-center justify-center">
+        {/* ... (Image and icon display remain the same) */}
         <img
           src={mainProduct.src}
           alt={mainProduct.title}
-          className="max-w-full max-h-96 rounded-lg mb-4"
+          className="h-130 rounded-2xl hover:shadow-amber-800 shadow-orange-300 shadow-2xl  mb-4"
         />
-        <div className="flex">
-          <FaHeart
-            onClick={handleAddToWishlist}
-            className="text-red-500 cursor-pointer text-2xl mr-4"
-          />
-          <FaShoppingCart
-            onClick={handleAddToCart}
-            className="text-green-500 cursor-pointer text-2xl"
-          />
-        </div>
       </div>
-      <div className="w-1/2 pl-6 flex flex-col">
+      <div className="w-1/2 pl-6 flex flex-col justify-center">
+        {/* ... (Product details display remain the same) */}
         <h2 className="text-2xl font-bold mb-2">{mainProduct.title}</h2>
         <p className="text-gray-700 mb-4">
           Sample image detailed description. You can add more details here.
@@ -221,16 +222,18 @@ const Detailed = () => {
 
         <div>
           <h3 className="text-xl font-bold mb-2">Related Products</h3>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 ">
             {relatedProducts && relatedProducts.length > 0 ? (
               relatedProducts.map((relatedImage, index) => (
-                <img
-                  key={index}
-                  src={relatedImage}
-                  alt="Related Product"
-                  className="w-24 h-24 rounded-lg cursor-pointer"
-                  onClick={() => handleRelatedProductClick(relatedImage)}
-                />
+                <div key={index} className="flex flex-col items-center">
+                  <img
+                    src={relatedImage}
+                    alt="Related Product"
+                    className="w-35 h-35 rounded-lg cursor-pointer"
+                    onClick={() => handleRelatedProductClick(relatedImage)}
+                  />
+                  <p className="text-lg mt-1">Price: ₹{getRandomPrice()}/-</p>
+                </div>
               ))
             ) : (
               <p>No related products found.</p>
@@ -238,6 +241,7 @@ const Detailed = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

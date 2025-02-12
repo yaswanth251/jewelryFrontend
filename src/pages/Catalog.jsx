@@ -105,6 +105,8 @@ function Catalog() {
 
   return (
       <div className="h-screen relative top-5">
+        <h1 className="text-3xl text-center text-amber-800">Hand Picked for you</h1>
+        <hr className="opacity-25" />
           {/* ... (Your heading and HR) */}
 
           {products.map((category, index) => ( // Correctly map over products
