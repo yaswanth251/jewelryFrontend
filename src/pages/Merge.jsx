@@ -1,5 +1,5 @@
 import React from "react";
-import UserHome from "./userHome";
+import UserHome from "./UserHome";
 import Products from "./Slider";
 import Catalog from "./Catalog";
 import Product from "./Product";
